@@ -66,4 +66,60 @@ public class solution {
         max = Math.max(max,count);
         return max;
     }
+    /**
+     * 209. 长度最小的子数组
+     * minimum-size-subarray-sum
+     * @author:  lzx♥
+     * @CreateDate 2020-06-11
+     * @UpdateDate 2020-06-11
+     */
+    public int minSubArrayLen(int s, int[] nums) {
+        int len = nums.length;
+        int sum = 0;
+        for (int i = 0;i<nums.length;i++){
+            sum = sum+nums[i];
+        }
+        if (sum<s){
+            return 0;
+        }
+        sum = 0;
+        int m = 0;
+        int n = 0;
+        while (m <= nums.length-1){
+            sum = sum + nums[n];
+            if(sum>=s){
+                len = Math.min(n-m+1, len);
+                sum = sum-nums[m]-nums[n];
+                m++;
+            }
+            else {
+                if(n<nums.length-1){
+                    n++;
+                }
+                else return len;
+            }
+        }
+        return len;
+    }
+    public int minSubArrayLen2(int s, int[] nums) {
+        int len = nums.length;
+        int sum = 0;
+        for (int i = 0;i<nums.length;i++){
+            sum = sum+nums[i];
+        }
+        if (sum<s){
+            return 0;
+        }
+        for(int i = 0;i<nums.length;i++){
+            sum = 0;
+            for (int j = i;j<nums.length;j++){
+                sum = sum + nums[j];
+                if(sum>=s){
+                    len = Math.min(len,j-i+1);
+                    break;
+                }
+            }
+        }
+        return len;
+    }
 }
