@@ -23,4 +23,47 @@ public class solution {
         }
         return new int[]{index1 + 1, index2 + 1};
     }
+
+    /**
+     * 27. 移除元素
+     * remove-element
+     * @author:  lzx♥
+     * @CreateDate 2020-06-11
+     * @UpdateDate 2020-06-11
+     */
+    public int removeElement(int[] nums, int val) {
+        int i = 0;
+        for(int j = 0;j<nums.length;j++){
+            if(nums[j] != val){
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        return i;
+    }
+
+    /**
+     * 485. 最大连续1的个数
+     * max-consecutive-ones
+     * @author:  lzx♥
+     * @CreateDate 2020-06-11
+     * @UpdateDate 2020-06-11
+     */
+    public int findMaxConsecutiveOnes(int[] nums) {
+
+        int max= 0;
+        int count = 0;
+        for(int i = 0;i<nums.length;i++){
+            if (nums[i] == 1){
+                count++;
+            }
+            else{
+                System.out.println(count);
+                max = Math.max(max,count);
+                count = 0;
+            }
+        }
+        max = Math.max(max,count);
+        return max;
+    }
 }
