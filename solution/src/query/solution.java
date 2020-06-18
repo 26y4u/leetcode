@@ -3,10 +3,7 @@ package query;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class solution {
 
@@ -50,7 +47,57 @@ public class solution {
 
         }
         return num;
+    }
 
+    /**
+     * 752. 打开转盘锁
+     * open-the-lock
+     *
+     * @author: 1004♥
+     * @CreateDate 2020-06-18
+     * @UpdateDate 2020-06-18
+     */
+    public int openLock(String[] deadends, String target) {
+        Set<String> dead = new HashSet<>(); //死亡数据集 去重
+        for(String d:deadends){
+            dead.add(d);
+        }
+
+        Queue<String> q = new LinkedList<String>();
+        q.offer("0000");
+        q.offer(null); // 取到null表示该层数据已遍历完
+
+        Set<String> been = new HashSet(); //已经遍历的结果集 去重
+        been.add("0000");
+
+        int depth = 0; // 层数
+        while (!q.isEmpty()){
+            // 队列非空
+            String node = q.poll();// 取出队列第一个节点
+            if(node == null){ // 该层遍历完成
+                depth++;
+                if(q.peek() != null){// 若下一层可到达的结点为空 -> 已经没有可以到达的结点了
+                    q.offer(null); // 加入下一层
+                }
+            }
+            else if(node.equals(target)){
+                return depth;
+            }
+            else if (!dead.contains(node)){ // 该节点不在死亡数据集中
+                // 遍历加入可到达的下一层结点
+                for(int i = 0;i<4;i++){
+                    for (int d = -1; d <= 1; d += 2) {
+                        int y = ((node.charAt(i) - '0') + d + 10) % 10; // 第i位替换成y
+                        String nei = node.substring(0, i) + ("" + y) + node.substring(i+1);// 相邻的结点
+                        if (!been.contains(nei)) {
+                            been.add(nei);
+                            q.offer(nei);
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
     }
 }
 
