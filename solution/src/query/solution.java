@@ -99,5 +99,60 @@ public class solution {
         }
         return -1;
     }
+
+    /**
+     * 279. 完全平方数 (BFS)
+     * perfect-squares
+     *
+     * @author: 1004♥
+     * @CreateDate 2020-06-18
+     * @UpdateDate 2020-06-18
+     */
+    public int numSquares(int n) {
+        Queue<Integer> q = new LinkedList<>();
+        Set<Integer> been = new HashSet<>();
+        q.offer(n);
+        been.add(n);
+        int depth = 0;
+        while (!q.isEmpty()){
+            int len = q.size();
+            depth++;
+            for(int i = 0;i<len;i++){
+                int node = q.poll();
+                for (int j=1;j*j<=node;j++){
+                    if(node-j*j == 0){
+                        return depth;
+                    }
+                    else {
+                        if(!been.contains(node-j*j)){
+                            been.add(node-j*j);
+                            q.offer(node-j*j);
+                        }
+                    }
+                }
+            }
+        }
+        return depth;
+    }
+
+    /**
+     * 279. 完全平方数 (动态规划)
+     * perfect-squares
+     *
+     * @author: 1004♥
+     * @CreateDate 2020-06-18
+     * @UpdateDate 2020-06-18
+     */
+    public int numSquares1(int n) {
+        int arr[] = new int[n+1];
+        arr[0] = 0;
+        for(int i = 1;i<n+1;i++){
+            arr[i] = i;
+            for(int j = 1;i-j*j>=0;j++){
+                arr[i] = Math.min(arr[i],arr[i-j*j]+1);
+            }
+        }
+        return arr[n];
+    }
 }
 

@@ -31,8 +31,8 @@
 > 输出: 3  
 > 解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成  
 
- 来源：力扣（LeetCode）
- 链接：https://leetcode-cn.com/problems/number-of-islands
+ 来源：力扣（LeetCode）  
+ 链接：https://leetcode-cn.com/problems/number-of-islands  
  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ***  
 
@@ -49,7 +49,20 @@
 > 可能的移动序列为 "0000" -> "1000" -> "1100" -> "1200" -> "1201" -> "1202" -> "0202"。  
 > 注意 "0000" -> "0001" -> "0002" -> "0102" -> "0202" 这样的序列是不能解锁的，因为当拨动到 "0102" 时这个锁就会被锁定。
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/open-the-lock
+来源：力扣（LeetCode）  
+链接：https://leetcode-cn.com/problems/open-the-lock  
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。  
+***  
+
+### 279. 完全平方数
+
+给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, ...）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。
+
+> 输入: n = 12 
+> 输出: 3  
+> 解释: 12 = 4 + 4 + 4.
+
+来源：力扣（LeetCode）  
+链接：https://leetcode-cn.com/problems/perfect-squares/   
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ***  
