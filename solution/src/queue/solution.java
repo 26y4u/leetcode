@@ -1,7 +1,6 @@
-package query;
+package queue;
 
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import java.util.*;
 

@@ -1,6 +1,4 @@
-package query;
-
-import javafx.application.Application;
+package queue;
 
 import java.io.IOException;
 

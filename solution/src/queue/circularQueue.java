@@ -1,7 +1,4 @@
-package query;
-
-import java.util.ArrayList;
-import java.util.List;
+package queue;
 
 /**
  * 622. 设计循环队列
