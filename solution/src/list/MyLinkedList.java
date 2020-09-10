@@ -3,8 +3,14 @@ package list;
 class ListNode {
     int val;
     ListNode next;
-    ListNode(int x) { val = x; }
+    ListNode(int x) { val = x; next=null;}
 }
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
+};
 class MyLinkedList {
     private int size;
     private ListNode head;

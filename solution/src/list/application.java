@@ -5,18 +5,20 @@ import java.io.IOException;
 
 public class application {
     public static void main(String[] args) throws IOException {
-        MyLinkedList list = new MyLinkedList();
-        list.addAtHead(2);
-        list.deleteAtIndex(1);
-        list.addAtHead(2);
-        list.addAtHead(7);
-        list.addAtHead(3);
-        list.addAtHead(2);
-        list.addAtHead(5);
-        list.addAtTail(5);
-        list.get(5);
-        list.deleteAtIndex(6);
-        list.deleteAtIndex(4);
+        System.out.println("hello world");
 
+        ListNode a = new  ListNode(2);
+        ListNode b = new  ListNode(4);
+        ListNode c = new  ListNode(3);
+        ListNode d = new  ListNode(5);
+        ListNode e = new  ListNode(6);
+        ListNode f = new  ListNode(4);
+
+        a.next = b;
+        b.next = c;
+        d.next = e;
+        e.next = f;
+        solution s = new solution();
+        s.addTwoNumbers(a,d);
     }
 }
